@@ -1,0 +1,46 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  input,
+  textarea {
+    @apply caret-primary;
+    -webkit-text-fill-color: currentColor; /* Fallback for older browsers */
+  }
+}
+
+@layer utilities {
+  .wrapper {
+    @apply w-[calc(100%-2rem)] py-4 mx-auto;
+  }
+
+  .btn {
+    @apply bg-primary text-white text-md border-none rounded-lg px-[0.8rem] py-[0.7rem] flex justify-center items-center gap-2 transition-opacity hover:opacity-70 focus-visible:opacity-50;
+  }
+
+  /* Selection styles */
+  ::selection {
+    background-color: hsl(13, 75%, 58%);
+    color: hsl(0, 0%, 100%);
+  }
+
+  /* Scrollbar styles */
+  ::-webkit-scrollbar {
+    width: 3px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background-color: hsl(222, 9%, 78%); /* dark-text-secondary */
+    border-radius: 9999px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: hsl(13, 75%, 58%); /* primary */
+    border-radius: 9999px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: hsla(13, 75%, 58%, 0.8); /* Slightly lighter primary */
+  }
+}
