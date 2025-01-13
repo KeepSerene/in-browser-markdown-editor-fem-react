@@ -8,6 +8,8 @@ import AppContent from "./components/AppContent";
 
 // Live site link https://nablanco.github.io/browser-markdown-editor/
 
+// Fix => Editor, Uncontrolled component to controlled component warning, files can be saved without the ".md" extension, light theme doesn't work
+
 function App() {
   return (
     <DocsProvider>

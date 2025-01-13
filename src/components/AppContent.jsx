@@ -27,8 +27,13 @@ function AppContent() {
         <button
           type="button"
           onClick={() => setIsPreviewOpen(!isPreviewOpen)}
-          aria-label="Click to preview markdown on full screen"
-          className="dark:text-dark-text-secondary text-light-text-secondary absolute top-3 right-3 transition-colors hover:text-primary focus-visible:text-primary"
+          aria-label={`Click to ${
+            isPreviewOpen ? "hide" : !isOnMdScrAndBelow && "view"
+          } markdown preview`}
+          title={`Click to ${
+            isPreviewOpen ? "hide" : !isOnMdScrAndBelow && "view"
+          } markdown preview`}
+          className="dark:text-dark-text-secondary text-light-text-secondary absolute top-3 right-4 transition-colors hover:text-primary focus-visible:text-primary"
         >
           {isPreviewOpen ? (
             <svg

@@ -11,13 +11,16 @@ function Header() {
 
   return (
     <div className="bg-dark-bg-highlight">
-      <header className="wrapper text-dark-text-secondary flex justify-between items-center">
+      <header
+        id="header"
+        className="wrapper text-dark-text-secondary flex justify-between items-center"
+      >
         <div className="flex items-center gap-4 md:gap-6">
           {/* Hamburger menu button */}
           <button
             type="button"
             onClick={() => setIsSidebarOpen(true)}
-            arai-label="Click to open the sidebar"
+            aria-label="Click to open the sidebar"
             className="hover:text-primary focus-visible:text-primary"
           >
             <svg
@@ -37,9 +40,12 @@ function Header() {
           </button>
 
           {/* Logo */}
-          <h1 className="hidden lg:block text-dark-text-primary text-md font-bold uppercase tracking-lg leading-4">
+          <a
+            href="#header"
+            className="hidden lg:block text-dark-text-primary text-md font-bold uppercase tracking-lg leading-4"
+          >
             Markdown
-          </h1>
+          </a>
 
           {/* Divider */}
           <div className="hidden lg:block self-stretch w-[1px] bg-dark-text-secondary opacity-30" />
@@ -73,8 +79,8 @@ function Header() {
                 type="text"
                 id="doc-title"
                 value={activeDoc?.name || ""}
-                onChange={(event) => updateDocName(event.target.value)}
-                size={Math.max(activeDoc?.name.length, 1)} // Ensure size = 1 for empty values
+                onChange={(event) => updateDocName(event.target.value.trim())}
+                size={Math.max(activeDoc?.name.length || "".length, 1)} // Ensure size = 1 for empty values
                 className="bg-transparent border-0 outline-none focus-within:border-b focus-within:border-primary"
               />
             </div>
