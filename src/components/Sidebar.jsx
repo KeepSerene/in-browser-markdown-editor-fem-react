@@ -1,4 +1,4 @@
-import { useDocsContext } from "./DocsProvider";
+import { useAppContext } from "./AppContextProvider";
 
 function Sidebar() {
   const {
@@ -9,7 +9,7 @@ function Sidebar() {
     setIsSidebarOpen,
     createNewDoc,
     setActiveDoc,
-  } = useDocsContext();
+  } = useAppContext();
 
   return (
     <aside

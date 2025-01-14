@@ -1,7 +1,7 @@
-import { useDocsContext } from "./DocsProvider";
+import { useAppContext } from "./AppContextProvider";
 
 function Preview() {
-  const { activeDoc, isPreviewOpen } = useDocsContext();
+  const { activeDoc, isPreviewOpen } = useAppContext();
 
   const isOnMdScrAndBelow = window.matchMedia("(width < 768px)").matches;
 
@@ -178,9 +178,9 @@ function Preview() {
     <div
       className={`${
         isPreviewOpen ? "w-full" : !isOnMdScrAndBelow && "md:w-1/2"
-      } h-[calc(100vh-78.4px)] dark:bg-dark-bg-primary bg-light-bg-primary dark:text-dark-text-secondary text-light-text-secondary absolute top-0 right-0 transition-[width] duration-200`}
+      } h-[calc(100vh-78.4px)] bg-light-bg-primary dark:bg-dark-bg-primary text-light-text-secondary dark:text-dark-text-secondary absolute top-0 right-0 transition-[width] duration-200`}
     >
-      <h3 className="dark:bg-dark-bg-secondary bg-light-bg-secondary font-md uppercase tracking-sm leading-4 p-3 px-4">
+      <h3 className="bg-light-bg-secondary dark:bg-dark-bg-secondary font-md uppercase tracking-sm leading-4 p-3 px-4">
         Preview
       </h3>
 
@@ -190,7 +190,7 @@ function Preview() {
           dangerouslySetInnerHTML={{
             __html: parseMarkdown(activeDoc?.content),
           }}
-          className="w-full h-full dark:bg-dark-bg-primary bg-light-bg-primary p-2 px-4"
+          className="w-full h-full bg-light-bg-primary dark:bg-dark-bg-primary p-2 px-4"
         ></article>
       </div>
     </div>

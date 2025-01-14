@@ -1,7 +1,7 @@
-import { useDocsContext } from "./DocsProvider";
+import { useAppContext } from "./AppContextProvider";
 
 function DeleteModal() {
-  const { activeDoc, deleteDoc, setIsDelModalOpen } = useDocsContext();
+  const { activeDoc, deleteDoc, setIsDelModalOpen } = useAppContext();
 
   const handleDelete = () => {
     deleteDoc();

@@ -1,5 +1,5 @@
 // Context import
-import { useDocsContext } from "./DocsProvider";
+import { useAppContext } from "./AppContextProvider";
 
 // Component imports
 import Editor from "./Editor";
@@ -9,7 +9,7 @@ import Sidebar from "./Sidebar";
 import DeleteModal from "./DeleteModal";
 
 function AppContent() {
-  const { isPreviewOpen, setIsPreviewOpen, isDelModalOpen } = useDocsContext();
+  const { isPreviewOpen, setIsPreviewOpen, isDelModalOpen } = useAppContext();
 
   const isOnMdScrAndBelow = window.matchMedia("(width < 768px)").matches;
 

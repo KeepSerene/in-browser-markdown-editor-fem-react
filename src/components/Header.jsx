@@ -1,4 +1,4 @@
-import { useDocsContext } from "./DocsProvider";
+import { useAppContext } from "./AppContextProvider";
 
 function Header() {
   const {
@@ -7,7 +7,18 @@ function Header() {
     updateDocName,
     saveChanges,
     setIsDelModalOpen,
-  } = useDocsContext();
+  } = useAppContext();
+
+  // Handle doc name input on blur
+  const handleOnBlur = (event) => {
+    const value = event.target.value.trim();
+
+    if (value.length < 1) {
+      updateDocName("untitled.md");
+    } else if (!value.endsWith(".md")) {
+      updateDocName(value + ".md");
+    }
+  };
 
   return (
     <div className="bg-dark-bg-highlight">
@@ -78,9 +89,10 @@ function Header() {
               <input
                 type="text"
                 id="doc-title"
-                value={activeDoc?.name || ""}
-                onChange={(event) => updateDocName(event.target.value.trim())}
-                size={Math.max(activeDoc?.name.length || "".length, 1)} // Ensure size = 1 for empty values
+                value={activeDoc?.name ?? ""}
+                onChange={(event) => updateDocName(event.target.value)}
+                onBlur={handleOnBlur}
+                size={activeDoc?.name.length ?? 1}
                 className="bg-transparent border-0 outline-none focus-within:border-b focus-within:border-primary"
               />
             </div>
@@ -89,6 +101,7 @@ function Header() {
 
         {/* Action buttons */}
         <div className="flex items-center gap-4 md:gap-6">
+          {/* Delete doc button */}
           <button
             type="button"
             onClick={() => setIsDelModalOpen(true)}
@@ -111,6 +124,7 @@ function Header() {
             </svg>
           </button>
 
+          {/* Save changes button */}
           <button
             type="button"
             onClick={saveChanges}

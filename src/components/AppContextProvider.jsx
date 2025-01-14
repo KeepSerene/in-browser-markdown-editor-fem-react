@@ -4,9 +4,9 @@ import { createContext, useContext, useEffect, useState } from "react";
 // Data import
 import documents from "/data/documents.json";
 
-const DocsContext = createContext();
+const AppContext = createContext();
 
-export default function DocsProvider({ children }) {
+export default function AppContextProvider({ children }) {
   const [isDarkTheme, setIsDarkTheme] = useState(null);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [docs, setDocs] = useState([]);
@@ -57,7 +57,7 @@ export default function DocsProvider({ children }) {
       setDocs(JSON.parse(storedDocs));
     } else {
       setDocs(documents);
-      localStorage.setItem("mdDocs", JSON.stringify(docs));
+      localStorage.setItem("mdDocs", JSON.stringify(documents));
     }
   }, []);
 
@@ -126,7 +126,7 @@ export default function DocsProvider({ children }) {
   };
 
   return (
-    <DocsContext.Provider
+    <AppContext.Provider
       value={{
         isDarkTheme,
         setIsDarkTheme,
@@ -147,8 +147,8 @@ export default function DocsProvider({ children }) {
       }}
     >
       {children}
-    </DocsContext.Provider>
+    </AppContext.Provider>
   );
 }
 
-export const useDocsContext = () => useContext(DocsContext);
+export const useAppContext = () => useContext(AppContext);
