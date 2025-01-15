@@ -65,9 +65,9 @@ function Sidebar() {
 
       {/* Docs */}
       <ul className="flex-1 overflow-y-auto grid content-start gap-4">
-        {docs.map((doc, index) => (
+        {docs.map((doc) => (
           <li
-            key={index}
+            key={doc.id}
             tabIndex={0}
             onClick={() => setActiveDoc(doc)}
             className="rounded-md p-1 cursor-pointer flex items-center gap-2 group"
@@ -92,7 +92,7 @@ function Sidebar() {
 
               <span
                 className={`${
-                  activeDoc?.name === doc.name
+                  activeDoc?.id === doc.id
                     ? "text-primary"
                     : "text-dark-text-primary"
                 } break-all transition-colors group-hover:text-primary group-focus-within:text-primary`}
