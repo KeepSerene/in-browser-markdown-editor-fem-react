@@ -13,7 +13,7 @@ function Editor() {
       {/* Subtract h3-height */}
       <div className="w-full h-[calc(100%-40px)] overflow-y-clip">
         <textarea
-          value={activeDoc?.content || ""}
+          value={activeDoc?.content ?? ""}
           onChange={(event) => updateDocContent(event.target.value)}
           aria-label="Edit your document"
           className="w-full h-full font-robotoMono bg-light-bg-primary dark:bg-dark-bg-primary p-2 px-4 resize-none focus:outline-none"

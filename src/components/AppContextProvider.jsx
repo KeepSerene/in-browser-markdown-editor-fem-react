@@ -61,7 +61,7 @@ export default function AppContextProvider({ children }) {
     }
   }, []);
 
-  // Set an active doc whenever "docs" changes
+  // Set an active doc
   useEffect(() => {
     if (docs.length > 0 && !activeDoc) {
       setActiveDoc(docs[0]);
