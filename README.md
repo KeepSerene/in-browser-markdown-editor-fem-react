@@ -6,7 +6,11 @@ MarkView Pro is a sleek, feature-rich, and responsive Markdown editor designed t
 
 ## Live Demo
 
-[Play around](/)
+[Play around](https://mark-view-pro.vercel.app/)
+
+## Desktop View
+
+![Screenshot - Desktop view](./public/mark-view-pro.png)
 
 ## Features
 
