@@ -43,6 +43,7 @@ function Preview() {
 
     // Process lists - collect all list items first
     let listMode = null;
+
     const processLists = (text) => {
       const lines = text.split("\n");
       const processedLines = [];
@@ -67,7 +68,9 @@ function Preview() {
             listMode = "ol";
           }
 
-          currentList.push(`<li class="ml-6">${orderedMatch[2]}</li>`);
+          currentList.push(
+            `<li class="marker:font-bold ml-8">${orderedMatch[2]}</li>`
+          );
           counter++;
         } else if (unorderedMatch) {
           if (listMode !== "ul") {
@@ -83,7 +86,9 @@ function Preview() {
             listMode = "ul";
           }
 
-          currentList.push(`<li class="ml-6">${unorderedMatch[1]}</li>`);
+          currentList.push(
+            `<li class="marker:text-primary ml-8">${unorderedMatch[1]}</li>`
+          );
         } else {
           if (currentList.length > 0) {
             processedLines.push(
@@ -158,7 +163,7 @@ function Preview() {
     codeBlocks.forEach((code, index) => {
       html = html.replace(
         `___CODE_BLOCK_${index}___`,
-        `<pre class="dark:bg-dark-bg-highlight bg-light-bg-highlight dark:text-dark-text-primary text-light-text-primary font-robotoMono rounded-md p-6 my-4 overflow-x-auto"><code>${code}</code></pre>`
+        `<pre class="dark:bg-dark-bg-highlight bg-light-bg-highlight dark:text-dark-text-primary text-light-text-primary rounded-md p-6 my-4 overflow-x-auto"><code class="font-robotoMono">${code}</code></pre>`
       );
     });
 

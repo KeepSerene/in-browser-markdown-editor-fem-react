@@ -8,6 +8,7 @@ function Sidebar() {
     isSidebarOpen,
     setIsSidebarOpen,
     createNewDoc,
+    activeDoc,
     setActiveDoc,
   } = useAppContext();
 
@@ -89,7 +90,13 @@ function Sidebar() {
             <div className="flex flex-col">
               <span className="text-sm">{doc.createdAt}</span>
 
-              <span className="text-dark-text-primary break-all transition-colors group-hover:text-primary group-focus-within:text-primary">
+              <span
+                className={`${
+                  activeDoc?.name === doc.name
+                    ? "text-primary"
+                    : "text-dark-text-primary"
+                } break-all transition-colors group-hover:text-primary group-focus-within:text-primary`}
+              >
                 {doc.name}
               </span>
             </div>

@@ -33,7 +33,7 @@ function AppContent() {
           title={`Click to ${
             isPreviewOpen ? "hide" : !isOnMdScrAndBelow && "view"
           } markdown preview`}
-          className="dark:text-dark-text-secondary text-light-text-secondary absolute top-3 right-4 transition-colors hover:text-primary focus-visible:text-primary"
+          className="text-light-text-secondary dark:text-dark-text-secondary absolute top-3 right-4 transition-colors hover:text-primary focus-visible:text-primary hover:dark:text-primary focus-visible:dark:text-primary"
         >
           {isPreviewOpen ? (
             <svg

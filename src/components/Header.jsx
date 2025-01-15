@@ -13,7 +13,7 @@ function Header() {
   const handleOnBlur = (event) => {
     const value = event.target.value.trim();
 
-    if (value.length < 1) {
+    if (value.length < 1 || value === ".md") {
       updateDocName("untitled.md");
     } else if (!value.endsWith(".md")) {
       updateDocName(value + ".md");
